@@ -17,3 +17,11 @@ function see:place_event_spawner {distance:0,gamemodes:[],event_command:"",repla
 > `event_command`: the command to run when the event is triggered
 >
 > `replace_spawner_with`: the block to replace the spawner with when the event is triggered, if `"spawner"` is used the event spawner will not be removed
+
+
+
+## Optimization Note
+If you are using this alongside another datapack that has a general entity registering function you may remove the ticking function from this pack and place the command below in your entity registration function 
+```
+execute if entity @s[type=marker,tag=see.event] at @s run function see:zzz/spawn_event with entity @s data
+```
